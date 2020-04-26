@@ -39,7 +39,10 @@ public class BasicCrypt {
         String userToRemove = scan.next();
         System.out.println("Insert the password to remove the user");
         String password = scan.next();
-        keeper.get(accountToRemove).remove(new Account(userToRemove, password));
+       ArrayList<Account> accounts = keeper.get(accountToRemove);
+       /*accounts.remove(new Account(userToRemove, password));
+        keeper.put(accountToRemove, accounts);*/
+        accounts.removeIf(account -> account.getUsername().equals(userToRemove));
     }
 
     public void saveFile() throws IOException {

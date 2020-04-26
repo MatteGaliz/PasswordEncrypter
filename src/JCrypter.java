@@ -30,7 +30,8 @@ public class JCrypter {
         }
         while (active) {
             System.out.println("1. Visualizza le password salvate");
-            System.out.println("2. Aggiungi una password");
+            System.out.println("2. Aggiungi un account");
+            System.out.println("3. Rimuovi un account");
             System.out.println("9. Esci");
             int ch = scan.nextInt();
             switch (ch) {
@@ -39,6 +40,9 @@ public class JCrypter {
                     break;
                 case 2:
                     crypter.addPassword();
+                    break;
+                case 3:
+                    crypter.removePassword();
                     break;
                 case 9:
                     try {
