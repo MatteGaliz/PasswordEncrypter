@@ -29,10 +29,11 @@ public class JCrypter {
             System.out.println("Class not found");
         }
         while (active) {
-            System.out.println("1. Visualizza le password salvate");
-            System.out.println("2. Aggiungi un account");
-            System.out.println("3. Rimuovi un account");
-            System.out.println("9. Esci");
+            System.out.println("1. Visualize saved passwords");
+            System.out.println("2. Add an account");
+            System.out.println("3. Remove an account");
+            System.out.println("4. Reset the account");
+            System.out.println("9. Exit");
             int ch = scan.nextInt();
             switch (ch) {
                 case 1:
@@ -43,6 +44,9 @@ public class JCrypter {
                     break;
                 case 3:
                     crypter.removePassword();
+                    break;
+                case 4:
+                    crypter.resetAccount();
                     break;
                 case 9:
                     try {

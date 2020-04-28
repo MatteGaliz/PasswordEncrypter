@@ -17,6 +17,7 @@ public class BasicCrypt {
         String username = scan.next();
         System.out.println("Insert the password for the account " + username);
         String password = scan.next();
+        scan.close();
         ArrayList<Account> accounts = keeper.get(account);
         Account a = new Account(username, password);
         if (accounts == null) {
@@ -37,12 +38,19 @@ public class BasicCrypt {
         System.out.println(keeper.get(accountToRemove).toString());
         System.out.println("What user do you want to remove?");
         String userToRemove = scan.next();
-        System.out.println("Insert the password to remove the user");
-        String password = scan.next();
-       ArrayList<Account> accounts = keeper.get(accountToRemove);
-       /*accounts.remove(new Account(userToRemove, password));
-        keeper.put(accountToRemove, accounts);*/
+        scan.close();
+        ArrayList<Account> accounts = keeper.get(accountToRemove);
         accounts.removeIf(account -> account.getUsername().equals(userToRemove));
+    }
+
+    public void resetAccount(){
+        Scanner scan = new Scanner(System.in);
+        boolean deleting = true;
+        System.out.println("Are you sure you want to remove all the saved accounts?    y/n");
+        String c = scan.next();
+        if(c.equals("y") || c.equals("Y")){
+            keeper.clear();
+        }
     }
 
     public void saveFile() throws IOException {
